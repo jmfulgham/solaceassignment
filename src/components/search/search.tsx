@@ -17,7 +17,7 @@ const Search = ({searchTerm, setSearchTerm, searchError, setSearchError}: Search
         if(searchTerm === "" && searchError){
             setSearchError(false);
         }
-    }, [searchTerm])
+    }, [searchTerm, searchError])
 
     return(
         <div>
