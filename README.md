@@ -4,6 +4,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Ensure the correct version of Node
+
+```bash
+nvm use
+```
+
 Install dependencies
 
 ```bash
