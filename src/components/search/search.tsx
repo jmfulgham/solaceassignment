@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { HiMagnifyingGlassCircle } from "react-icons/hi2";
-import { set } from "yaml/dist/schema/yaml-1.1/set";
 
 interface SearchProps {
   searchTerm: string;
