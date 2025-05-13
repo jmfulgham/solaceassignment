@@ -1,13 +1,17 @@
 import {useEffect} from "react";
+import { HiMagnifyingGlassCircle } from "react-icons/hi2";
 
 interface SearchProps {
     searchTerm: string;
     setSearchTerm: (searchTerm: string)=> void;
     searchError: boolean;
     setSearchError:  (value: (((prevState: boolean) => boolean) | boolean)) => void;
+    isSearchExpanded: boolean;
+    setSearchExpanded: (prevState: boolean) => boolean;
 }
 
-const Search = ({searchTerm, setSearchTerm, searchError, setSearchError}: SearchProps)=> {
+const Search = ({searchTerm, setSearchTerm, searchError, setSearchError, isSearchExpanded, setSearchExpanded}: SearchProps)=> {
+
     const handleReset = () => {
        setSearchTerm("");
         setSearchError(false);
@@ -20,10 +24,11 @@ const Search = ({searchTerm, setSearchTerm, searchError, setSearchError}: Search
     }, [searchTerm, searchError])
 
     return(
-        <div>
-            <p className={"mb-2"}>Search</p>
+        <div className={"ml-4 flex justify-items-end"}>
+            {!isSearchExpanded ? <button onClick={()=> setSearchExpanded(true)} className={"justify-self-center items-center"}><HiMagnifyingGlassCircle className={"w-[30px] h-[30px]"} alt={"Search"} /></button> :
+            <>
             <input className={'border border-black mr-2 rounded-md h-[40px] p-2'} value={searchTerm} onChange={e=>setSearchTerm(e.target.value.toLowerCase())}/>
-            <button className={'text-[12px] ml-2 text-gray-500 hover:text-blue-600'} onClick={handleReset}>Reset Search</button>
+            <button className={'text-[12px] ml-2 text-gray-500 hover:text-blue-600'} onClick={handleReset}>Reset Search</button></>}
             {searchError && <div className={"text-[12px] text-red-600 mt-2"}><p>No results found</p></div>}
     </div>)
 }

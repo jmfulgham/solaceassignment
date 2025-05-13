@@ -13,6 +13,7 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState<String>("");
   const [searchError, setSearchError] = useState<boolean>(false);
   const [pageError, setPageError] = useState<boolean>(false);
+  const [isSearchExpanded, setSearchExpanded] = useState<boolean>(false);
 
     useEffect(()=> {
         try {
@@ -54,10 +55,13 @@ export default function Home() {
   }, [searchTerm, setSearchTerm])
 
   return (
-      <main className={"m-6"}>
-        <h1 className={"font-bold text-[28px] mb-4"}>Solace Advocates</h1>
-          {pageError ? <ErrorPage/>: (<><Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} searchError={searchError} setSearchError={setSearchError}/>
-        <AdvocatesTable searchTerm={searchTerm} filteredAdvocates={filteredAdvocates} advocates={advocates}/></>)}
-      </main>
+      <div className={"m-8"}>
+          <div className={"m-2 flex justify-between mb-4"}>
+              <div><h1 className={"font-bold text-[28px]"}>Health Advocates</h1></div>
+              <Search isSearchExpanded={isSearchExpanded} setSearchExpanded={setSearchExpanded} searchTerm={searchTerm} setSearchTerm={setSearchTerm} searchError={searchError} setSearchError={setSearchError}/>
+          </div>
+          {pageError && <ErrorPage/>}
+        <AdvocatesTable searchTerm={searchTerm} filteredAdvocates={filteredAdvocates} advocates={advocates}/>
+      </div>
   );
 }

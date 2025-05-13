@@ -6,7 +6,7 @@ interface AdvocatesTableProps {
     searchTerm: string;
 }
 const AdvocatesTable = ({filteredAdvocates, advocates, searchTerm}: AdvocatesTableProps)=> {
-    const headings = ["First Name", "Last Name", "City", "Degree", "Specialties", "Years Of Experience", "Phone Number"]
+    const headings: string[] = ["First Name", "Last Name", "City", "Degree", "Specialties", "Years Of Experience", "Phone Number"]
     const createTable = (advocatesList: Advocate[]) => {
         if (advocatesList.length) {
             return advocatesList.map((advocate, i) => (
