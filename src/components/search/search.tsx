@@ -22,7 +22,7 @@ const Search = ({
     setSearchTerm("");
     setSearchError(false);
   };
-  console.log({ isSearchExpanded });
+
   useEffect(() => {
     if (searchTerm === "" && searchError) {
       setSearchError(false);
@@ -36,7 +36,7 @@ const Search = ({
         className={"justify-self-center items-center mr-2"}
       >
         <HiMagnifyingGlassCircle
-          className={"w-[30px] h-[30px]"}
+          className={"w-[30px] h-[30px] text-green-900"}
           alt={"Search"}
         />
       </button>
