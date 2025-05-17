@@ -57,7 +57,10 @@ const Search = ({
             </button>
             <button
               className={"text-[12px] ml-3 text-gray-500 hover:text-blue-600"}
-              onClick={() => setSearchExpanded(false)}
+              onClick={() => {
+                setSearchExpanded(false)
+                setSearchTerm("")
+              }}
             >
               Cancel
             </button>
