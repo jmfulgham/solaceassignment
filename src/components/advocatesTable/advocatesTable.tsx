@@ -2,7 +2,7 @@ import { Advocate } from "@/app/types";
 import {
   dataStyle,
   paginationButtonStyle,
-  paginationContainerStyle
+  paginationContainerStyle, tableRowStyle
 } from "@/components/advocatesTable/advocatesTable.style";
 import { useCallback, useState } from "react";
 
@@ -17,7 +17,7 @@ const AdvocatesTable = ({
   searchTerm,
 }: AdvocatesTableProps) => {
   const [page, setPage] = useState(1);
-  const [tableAmount, setTableAmount] = useState(10);
+  const [tableAmount, setTableAmount] = useState(5);
   const headings: string[] = [
     "First Name",
     "Last Name",
@@ -56,9 +56,7 @@ const AdvocatesTable = ({
       return advocatesList.map((advocate, i) => (
         <tr
           key={i}
-          className={
-            "font-light text-[12px] hover:bg-green-900 hover:opacity-50 hover:text-white"
-          }
+          className={tableRowStyle}
         >
           <td className={dataStyle}>{advocate.firstName}</td>
           <td className={dataStyle}>{advocate.lastName}</td>
@@ -81,7 +79,7 @@ const AdvocatesTable = ({
       <table className={"bg-clip-border shadow-lg rounded-xl"}>
         <tr className={"bg-green-900 text-white rounded-lg"}>
           {headings.map((name) => (
-            <th className={"text-[12px] font-light "} scope="col" key={name}>
+            <th className={"text-[12px] font-light"} scope="col" key={name}>
               <div className={"m-2 md:m-4"}>{name}</div>
             </th>
           ))}
@@ -92,7 +90,7 @@ const AdvocatesTable = ({
             : createTable(handlePagination())}
         </tbody>
       </table>
-      <div className={"flex flex-row justify-center mt-2"}>
+      <div className={"flex flex-row justify-between mt-4 w-[full]"}>
         <div className={paginationContainerStyle}>
           <button className={paginationButtonStyle} disabled={page === 1} onClick={handlePrevPage}>Prev</button>
         </div>

@@ -2,6 +2,6 @@ import { cn } from "@/util";
 
 export const dataStyle = cn("p-4");
 
-export const paginationButtonStyle = cn("py-2 border border-black rounded-md w-[50%] disabled:cursor-not-allowed disabled:opacity-50")
-export const paginationContainerStyle= cn("w-[200px]")
-//TODO style the table like the mock, then test the table and util for cn
+export const tableRowStyle = cn("font-light text-[12px] hover:bg-green-900 hover:opacity-50 hover:text-white")
+export const paginationButtonStyle = cn("w-[100px] py-2 border bg-green-900 text-white rounded-md disabled:cursor-not-allowed disabled:opacity-50")
+export const paginationContainerStyle= cn("justify-items-end")
