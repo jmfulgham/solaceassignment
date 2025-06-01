@@ -27,14 +27,14 @@ const specialties = [
   "Domestic abuse",
 ];
 
-const randomSpecialty = () => {
+export const randomSpecialty = () => {
   const random1 = Math.floor(Math.random() * 24);
   const random2 = Math.floor(Math.random() * (24 - random1)) + random1 + 1;
 
   return [random1, random2];
 };
 
-const advocateData = [
+export const advocateData = [
   {
     firstName: "John",
     lastName: "Doe",

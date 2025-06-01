@@ -9,7 +9,7 @@ import { useCallback, useState } from "react";
 interface AdvocatesTableProps {
   advocates: Advocate[];
   filteredAdvocates: Advocate[];
-  searchTerm: string;
+  searchTerm?: string;
 }
 const AdvocatesTable = ({
   filteredAdvocates,
@@ -76,7 +76,7 @@ const AdvocatesTable = ({
 
   return (
     <div className={"mt-[32px] flex flex-col justify-center"}>
-      <table className={"bg-clip-border shadow-lg rounded-xl"}>
+      <table className={"bg-clip-border shadow-lg rounded-xl"} data-testid={"advocatesTable"}>
         <tr className={"bg-green-900 text-white rounded-lg"}>
           {headings.map((name) => (
             <th className={"text-[12px] font-light"} scope="col" key={name}>
