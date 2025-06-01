@@ -94,10 +94,10 @@ const AdvocatesTable = ({
       </table>
       <div className={"flex flex-row justify-center mt-2"}>
         <div className={paginationContainerStyle}>
-          <button className={paginationButtonStyle} onClick={handlePrevPage}>Prev</button>
+          <button className={paginationButtonStyle} disabled={page === 1} onClick={handlePrevPage}>Prev</button>
         </div>
         <div className={paginationContainerStyle}>
-          <button className={paginationButtonStyle} onClick={handleNextPage}>Next</button>
+          <button className={paginationButtonStyle} disabled={!advocates[page*tableAmount]} onClick={handleNextPage}>Next</button>
         </div>
       </div>
     </div>
